@@ -1,5 +1,7 @@
 # Excel_lab_Santander
 
+Não terminado o README
+
 1) Visão geral do projeto
 Este projeta implementa um dashboard de vendas (base fictícia) para assinaturas do Xbox Game Pass, com foco em:
 Receita (Total Value)
