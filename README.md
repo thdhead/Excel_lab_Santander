@@ -1,5 +1,3 @@
-# Excel_lab_Santander
-
 # excel_lab.xlsx — Dashboard de Vendas (Xbox Game Pass)
 
 ## Objetivo
