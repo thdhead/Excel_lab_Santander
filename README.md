@@ -1,62 +1,46 @@
 # Excel_lab_Santander
 
-Não terminado o README
+# excel_lab.xlsx — Dashboard de Vendas (Xbox Game Pass)
 
-1) Visão geral do projeto
-Este projeta implementa um dashboard de vendas (base fictícia) para assinaturas do Xbox Game Pass, com foco em:
-Receita (Total Value)
-Separação de visualização por Subscription Type: Monthly / Quarterly / Annual
-Segmentação por Auto Renewal (Yes/No)
-KPIs de receita dos add-ons: EA Play Season Pass Price e Minecraft Season Pass Price
+## Objetivo
+Esta planilha organiza e analisa uma base fictícia de assinaturas do Xbox Game Pass e add-ons (EA Play e Minecraft), usando Tabela do Excel + Tabelas Dinâmicas para gerar métricas e um dashboard com gráficos.
 
-2) Estrutura do arquivo (abas)
-A̳ssets
-Paleta de cores, logos e ícones usados para padronizar o visual do dashboard.
-B̳ases
-Base de dados com os registros de assinantes e valores monetários que alimentam os pivôs.
-C̳álculos
-Área de PivotTables (tabelas dinâmicas) que agregam os dados e servem de fonte para:
-Gráficos do dashboard
-D̳ashboard
-Área final de visualização com:
-KPIs (Minecraft e EA)
-Gráfico(s) por Subscription Type e Auto Renewal
-Segmentações via slicers
+## Estrutura do arquivo (abas)
+- **Dashboard**
+  - Painel com título, elementos visuais e gráficos (barra e pizza).
+  - Indicadores puxados por fórmulas **GETPIVOTDATA** (ex.: totais de Minecraft Season Pass e EA Play).
 
-4) Dados utilizados (colunas da base)
-A base está na aba B̳ases com as colunas:
+- **Cálculos**
+  - Área com **Tabelas Dinâmicas** que alimentam o Dashboard, incluindo:
+    - Soma de **Total Value** (receita total) por categoria (ex.: renovação).
+    - Soma de valores de add-ons (Minecraft e EA Play).
+    - Contagem/distribuição por plano (**Core/Standard/Ultimate**).
 
-Subscriber ID — identificador do assinante
-Name — nome do assinante
-Plan — plano (ex.: Core / Standard / Ultimate)
-Start Date — data de início
-Auto Renewal — renovação automática (Yes/No)
-Subscription Price — preço da assinatura
-Subscription Type — periodicidade (Monthly / Quarterly / Annual)
-EA Play Season Pass — indicador (Yes/No)
-EA Play Season Pass Price — valor do EA Play
-Minecraft Season Pass — indicador (Yes/No)
-Minecraft Season Pass Price — valor do Minecraft
-Coupon Value — valor de cupom/desconto
-Total Value — valor total do cliente (medida principal de receita)
+- **Bases**
+  - Base principal em uma **Tabela do Excel (Tabela1)** com colunas como:
+    - Subscriber ID, Name, Plan, Start Date, Auto Renewal
+    - Subscription Price, Subscription Type
+    - EA Play Season Pass (+ Price)
+    - Minecraft Season Pass (+ Price)
+    - Coupon Value, Total Value
+  - Essa tabela é a fonte das Tabelas Dinâmicas.
 
-4) O que foi construído (transformações e análises)
-Criação de PivotTables na aba C̳álculos para:
-Agregar Total Value por Subscription Type e Auto Renewal
-Somar valores de add-ons (EA e Minecraft)
-Contagens por Plan (para visão de base de clientes)
-No D̳ashboard, os KPIs de EA e Minecraft são puxados por fórmulas ligadas aos pivôs.
+- **Assets**
+  - Paleta de cores (hex) e imagens/elementos usados para padronizar o visual do Dashboard.
 
-5) Como reproduzir (passo a passo)
-Abra o arquivo excel_lab.xlsx no Excel 365.
-Valide os dados, normalize os valores.
-Valide que os dados estão consistentes.
-Vá até a aba B̳ases e substitua/adicione linhas na tabela mantendo:
-Os mesmos nomes de colunas
-O mesmo tipo de dado
-Crie os pivot tables
-Atualize os pivots:
-Vá para a aba D̳ashboard e use os slicers para filtrar:
-Verifique que:
-KPIs (EA e Minecraft) mudam com os filtros
-Gráficos refletem os mesmos filtros aplicados
+## Principais métricas/visões
+- Receita total (**Total Value**) consolidada e segmentada (via Tabela Dinâmica).
+- Distribuição por plano (Core/Standard/Ultimate).
+- Totais de add-ons (EA Play e Minecraft) exibidos no Dashboard via **GETPIVOTDATA**.
+
+## Como usar / atualizar
+1. Abra `excel_lab.xlsx` no Microsoft Excel.
+2. Atualize tudo: **Dados > Atualizar Tudo** (para recalcular Tabelas Dinâmicas e o Dashboard).
+3. Use filtros/slicers (quando disponíveis) para segmentar as visões.
+4. Para adicionar novos registros:
+   - Insira novas linhas dentro da **Tabela1** na aba **Bases**;
+   - Depois execute **Atualizar Tudo** novamente.
+
+## Observações
+- O Dashboard depende de Tabelas Dinâmicas e **GETPIVOTDATA** (em Google Sheets pode não funcionar igual).
+- Se renomear colunas/campos, revise as Tabelas Dinâmicas e as fórmulas no Dashboard.
